@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+html {
+	background-color: black;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,3 +51,6 @@ table {
 	border-spacing: 0;
 }
 
+.half {
+	padding-top: 50px;
+}
