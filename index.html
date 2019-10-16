@@ -6,22 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Los Altos History Museum</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+      .label {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 1.35em;
+        height: 50px;
+        color: white;
+        line-height: 2.5;
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
     <div class="wrapper">
       <div class="half top-half">
-        <div class="label">Some text</div>
+        <div class="label">A Message on Fire Safety from Santa Clara County Fire Chief Tony Bowden</div>
         <video class="afterglow" id="fire-audio-excerpt" width="640" height="360" src="https://res.cloudinary.com/dzwa7qhj1/video/upload/q_auto:eco/v1571118686/earthquake-safety.mp4" poster="https://gilaherald.com/wp-content/uploads/2018/06/Firetruck-with-ladder.jpg"></video>
       </div>
       <div class="half bottom-half">
-        <div class="label">Other text</div>
+        <div class="label">An Oral History with Retired Los Altos Police Chief Richard Brannon</div>
         <video class="afterglow" id="police-audio-excerpt" width="640" height="360" src="https://res.cloudinary.com/dzwa7qhj1/video/upload/q_auto:eco/v1571118700/brennan.mp4" poster="https://drive.google.com/uc?export=download&id=1KE0yhRGic2DzKo_roSxT8dHf_iVsJaVT"></video>
       </div>
     </div>
 
     <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/afterglowplayer@1.x"></script>
-    <script src="./index.js"></script>
+    <script>
+      const clipNames = [
+        'fire-audio-excerpt',
+        'police-audio-excerpt'
+      ];
+
+      function setup(x, y) {
+        afterglow.on(clipNames[x],'play', function(){
+          const otherplayer = afterglow.getPlayer(clipNames[y]);
+          otherplayer.load();
+        });
+      }
+
+      setup(0, 1);
+      setup(1, 0);
+    </script>
   </body>
 </html>
