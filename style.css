@@ -51,6 +51,9 @@ table {
 	border-spacing: 0;
 }
 
-.half {
-	padding-top: 35px;
+.label {
+	height: 50px;
+	color: white;
+	line-height: 3;
+	text-align: center;
 }
